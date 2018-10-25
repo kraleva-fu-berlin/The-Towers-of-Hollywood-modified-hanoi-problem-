@@ -1,0 +1,31 @@
+def hanoi2(n):
+ 	return hanoihelper2(n,1,'a','b','c')
+
+def hanoihelper2(n,k,fromm,rest,to):
+        if k<n:
+                print("move",k," from" ,fromm,"to",rest)
+                a = k-2
+                b = k%2+1
+                while a>0:
+                        print("move",a," from" ,to,"to",rest)
+                        a -= 2
+                while b>0 and b<k:
+                        print("move",b," from" ,to,"to",rest)
+                        b += 2
+                hanoihelper2(n,k+1,fromm,to,rest)
+                        
+        elif k==n:
+                returnhanoi(n,k,rest,fromm,to)
+
+        
+def returnhanoi(n,k,fromm,rest,to):
+        print("move",k," from" ,rest,"to",fromm)
+        a = k-2
+        if a>0:
+                while a>0:
+                        print("move",a," from" ,to,"to",rest)
+                        a-=1
+                returnhanoi(n,k-1,fromm,to,rest)
+        else:
+                print("move",a+1," from" ,to,"to",fromm)
+                return
